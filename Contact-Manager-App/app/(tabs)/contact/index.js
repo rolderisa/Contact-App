@@ -49,6 +49,8 @@ export default function Home() {
     .join("")
     .toUpperCase(); // -> "ISR"
 
+    
+
   const renderContact = ({ item }) => (
     <Pressable
       className="flex-row items-center py-3 px-2 bg-white rounded-lg mb-2 shadow-sm"
