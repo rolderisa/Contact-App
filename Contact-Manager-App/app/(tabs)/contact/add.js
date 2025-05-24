@@ -26,7 +26,7 @@ export default function AddContact() {
 
     try {
       await api.post('/contacts', newContact);
-      router.replace('/');
+      router.replace('/contact');
     } catch (err) {
       console.error('Failed to add contact', err);
       Alert.alert('Error', 'Could not add contact');

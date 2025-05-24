@@ -65,7 +65,7 @@ export default function ContactDetail() {
           className="flex-row items-center bg-yellow-500 px-4 py-2 rounded-full"
         >
           <Feather name="edit" size={18} color="white" />
-          <Text className="text-white ml-2 font-medium">Edit</Text>
+          <Text className="text-white ml font-medium">Edit</Text>
         </Pressable>
 
         <Pressable

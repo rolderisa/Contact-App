@@ -12,9 +12,9 @@ export default function RootLayout() {
 
   const checkAuth = async () => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 500)); // Wait for AsyncStorage
+      await new Promise((resolve) => setTimeout(resolve, 500));
       const userToken = await AsyncStorage.getItem("userToken");
-      console.log("User token:", userToken); // Debug log
+      console.log("User token:", userToken);
       setIsAuthenticated(!!userToken);
     } catch (err) {
       console.error("Failed to check auth", err);
@@ -22,21 +22,20 @@ export default function RootLayout() {
   };
 
   useEffect(() => {
-    checkAuth().then(() => setIsMounted(true)); // Initial check on mount
+    checkAuth().then(() => setIsMounted(true));
   }, []);
 
   useEffect(() => {
     if (isMounted) {
-      // Re-check authentication on segment change
       checkAuth();
-      console.log("Segments:", segments, "IsAuthenticated:", isAuthenticated); // Debug log
+      console.log("Segments:", segments, "IsAuthenticated:", isAuthenticated);
       if (!isAuthenticated && !segments.some((seg) => seg.includes("login") || seg.includes("register"))) {
         router.replace("/contact-details/login");
       } else if (isAuthenticated && segments.some((seg) => seg.includes("login"))) {
         router.replace("/contact");
       }
     }
-  }, [segments, isMounted]); // Re-run when segments change
+  }, [segments, isMounted]);
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
