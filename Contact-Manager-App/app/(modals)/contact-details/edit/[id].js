@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { TextInput, Text, Pressable, Alert, ScrollView } from "react-native";
+import {View, TextInput, Text, Pressable, Alert, ScrollView } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { api } from "../../../../services/api";
 
@@ -54,7 +54,9 @@ export default function EditContact() {
   };
 
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }} className="bg-white p-6">
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} className="bg-white p-10">
+      <View className="mt-10 p-6">
+      <Text className="text-lg font-bold mb-2 text-center">Edit Contact</Text>
       <Text className="text-lg font-semibold text-slate-700 mb-2">Name</Text>
       <TextInput
         className="border border-slate-300 rounded px-4 py-2 mb-4"
@@ -91,6 +93,7 @@ export default function EditContact() {
       >
         <Text className="text-white text-lg font-medium">Update Contact</Text>
       </Pressable>
+      </View>
     </ScrollView>
   );
 }
